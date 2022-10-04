@@ -1,19 +1,24 @@
 <template>
     <div class="content">
-        <Placeholder :title='title'/>
+        <HeaderItem :title="title" />
+        <main class="container my-4">
+            <h2 class="font-weight-bold">Elenco dei post</h2>
+            <PostsItem />
+        </main>
     </div>
 </template>
 
 <script>
-import Placeholder from './Placeholder.vue';
+import HeaderItem from './HeaderItem.vue';
+import PostsItem from './posts/PostsItem.vue';
 
-    export default {
+export default {
     name: "App",
-    components: { Placeholder },
+    components: { HeaderItem, PostsItem },
     data() {
-            return {
-                title: 'Work in progress',
-            };
-        },
+        return {
+            title: "Boolpress",
+        };
+    },
 };
 </script>
