@@ -4,7 +4,6 @@
     <div class="card-body">
       <h5 class="card-title font-weight-bold">{{ post.title }}</h5>
       <p class="card-text">{{ post.content }}</p>
-      <p>Categoria: {{ post.category }}</p>
       <div class="d-flex justify-content-end">
         <router-link :to="{ name: 'post-details', params: { id: post.id} }" class="btn btn-success">Vedi</router-link>
       </div>
