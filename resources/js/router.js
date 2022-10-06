@@ -7,6 +7,7 @@ import HomePage from './components/pages/HomePage.vue';
 import AboutPage from './components/pages/AboutPage.vue';
 import ContactsPage from './components/pages/ContactsPage.vue';
 import NotFoundPage from './components/pages/NotFoundPage.vue';
+import PostPage from './components/pages/PostPage.vue';
 
 //* Vue usa router
 Vue.use(VueRouter)
@@ -19,6 +20,7 @@ const routes = new VueRouter({
         { path: '/', component: HomePage, name: 'home'},
         { path: '/about', component: AboutPage, name: 'about'},
         { path: '/contacts', component: ContactsPage, name: 'contacts'},
+        { path: '/posts/:id', component: PostPage, name: 'post-details'},
         
         // Questa va importata per  ultima altrimenti blocca tutto ciò che viene dopo
         { path: '*', component: NotFoundPage, name: 'not_found'},

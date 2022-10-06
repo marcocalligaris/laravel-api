@@ -1,11 +1,15 @@
 <template>
-<div class="card bg-light mb-3">
-  <div class="card-header">Pubblicato il: {{ createdAt }}</div>
-  <div class="card-body">
-    <h5 class="card-title font-weight-bold">{{ post.title }}</h5>
-    <p class="card-text">{{ post.content }}</p>
+  <div class="card bg-light mb-3">
+    <div class="card-header">Pubblicato il: {{ createdAt }}</div>
+    <div class="card-body">
+      <h5 class="card-title font-weight-bold">{{ post.title }}</h5>
+      <p class="card-text">{{ post.content }}</p>
+      <p>Categoria: {{ post.category }}</p>
+      <div class="d-flex justify-content-end">
+        <router-link :to="{ name: 'post-details', params: { id: post.id} }" class="btn btn-success">Vedi</router-link>
+      </div>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -21,7 +25,6 @@ export default {
 
             if(day < 10) day = '0' + day;
             if(month < 10) month = '0' + month;
-
             return `${day}/${month}/${year}`;
         },
     },
