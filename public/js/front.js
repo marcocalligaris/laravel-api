@@ -2021,6 +2021,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostPage",
+  components: {
+    PostCardItem: _posts_PostCardItem_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       post: null
@@ -2030,7 +2033,7 @@ __webpack_require__.r(__webpack_exports__);
     getPost: function getPost() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://localhost:8000/api/posts/1").then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://localhost:8000/api/posts/" + this.$route.params.id).then(function (res) {
         _this.post = res.data;
       }).then(function () {
         console.log("Chiamata terminata");
@@ -2039,9 +2042,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getPost();
-  },
-  components: {
-    PostCardItem: _posts_PostCardItem_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 
@@ -2410,11 +2410,11 @@ var render = function render() {
     }
   }, [_c("h3", {
     staticClass: "font-weight-bold mb-3"
-  }, [_vm._v("Dettagli del post")]), _vm._v(" "), _c("PostCardItem", {
+  }, [_vm._v("Dettagli del post")]), _vm._v(" "), _vm.post ? _c("PostCardItem", {
     attrs: {
       post: _vm.post
     }
-  })], 1);
+  }) : _vm._e()], 1);
 };
 
 var staticRenderFns = [];
@@ -2448,7 +2448,7 @@ var render = function render() {
     staticClass: "card-title font-weight-bold"
   }, [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("p", [_vm._v("Categoria: " + _vm._s(_vm.post.category))]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-end"
   }, [_c("router-link", {
     staticClass: "btn btn-success",
